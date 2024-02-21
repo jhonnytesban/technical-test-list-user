@@ -7,6 +7,7 @@ import { UserRoutingModule } from '../user/user-routing.module';
 import { LogInComponent } from './log-in/log-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { HttpClientModule } from '@angular/common/http';
+import { TranslateModule } from '@ngx-translate/core';
 
 // import { FolderPageRoutingModule } from './folder-routing.module'
 
@@ -18,7 +19,8 @@ import { HttpClientModule } from '@angular/common/http';
     UserRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    TranslateModule
   ],
   declarations: [LogInComponent, SignUpComponent]
 })

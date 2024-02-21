@@ -35,6 +35,9 @@ export class UserUpdateComponent  implements OnInit {
   }
 
   confirm() {
+    if (this.updateUserForm.pristine) {
+      return this.modalCtrl.dismiss(null, 'confirm');
+    }
     return this.modalCtrl.dismiss(this.updateUserForm.getRawValue(), 'confirm');
   }
 }

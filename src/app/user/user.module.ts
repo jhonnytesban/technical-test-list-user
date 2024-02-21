@@ -4,13 +4,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-// import { FolderPageRoutingModule } from './folder-routing.module';
-
 import { UserPageComponent } from './pages/user-page.component';
-import { AppRoutingModule } from '../app-routing.module';
 import { UserRoutingModule } from './user-routing.module';
 import { UserListComponent } from './components/user-list/user-list.component';
 import { UserUpdateComponent } from './modals/user-update/user-update.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
@@ -18,8 +16,13 @@ import { UserUpdateComponent } from './modals/user-update/user-update.component'
     FormsModule,
     IonicModule,
     UserRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    TranslateModule
   ],
-  declarations: [UserPageComponent, UserListComponent, UserUpdateComponent]
+  declarations: [
+    UserPageComponent,
+    UserListComponent,
+    UserUpdateComponent
+  ]
 })
 export class UserPageModule {}

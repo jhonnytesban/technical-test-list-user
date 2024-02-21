@@ -1,7 +1,7 @@
 <ion-content>
   <ion-header>
     <ion-toolbar>
-      <ion-title class="ion-text-center">Iniciar sesión</ion-title>
+      <ion-title class="ion-text-center">{{ 'log-in' | translate }}</ion-title>
     </ion-toolbar>
   </ion-header>
   
@@ -9,13 +9,13 @@
     <ion-card-content>
       <form [formGroup]="loginForm">
         <ion-item>
-          <ion-input label="Correo electrónico" labelPlacement="floating" type="email" formControlName="email"></ion-input>
+          <ion-input label="{{ 'email' | translate }}" labelPlacement="floating" type="email" formControlName="email"></ion-input>
         </ion-item>
         <ion-item>
-          <ion-input label="Contraseña" labelPlacement="floating" type="password" formControlName="password"></ion-input>
+          <ion-input label="{{ 'password' | translate }}" labelPlacement="floating" type="password" formControlName="password"></ion-input>
         </ion-item>
-        <ion-button expand="block" [disabled]="loginForm.invalid" (click)="login()">Iniciar sesión</ion-button>
-        <ion-button fill="clear" expand="block" [routerLink]="['/auth/register']">Registrarse</ion-button>
+        <ion-button expand="block" [disabled]="loginForm.invalid" (click)="login()">{{ 'log-in' | translate }}</ion-button>
+        <ion-button fill="clear" expand="block" [routerLink]="['/auth/register']">{{ 'register' | translate }}</ion-button>
       </form>
     </ion-card-content>
   </ion-card>

@@ -1,0 +1,18 @@
+{
+  "log-in": "Log In",
+  "log-out": "Log Out",
+  "register": "Register",
+  "registration": "Registration",
+  "create-account": "Create Account",
+
+  "name": "Name",
+  "surname": "Surname",
+  "email": "Email",
+  "password": "Password",
+
+  "update-user": "Update User",
+  "list-user": "List of Users",
+
+  "confirm": "Confirm",
+  "cancel": "Cancel"
+}

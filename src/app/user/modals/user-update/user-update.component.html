@@ -3,9 +3,9 @@
     <ion-buttons slot="start">
       <ion-button (click)="cancel()">Cancel</ion-button>
     </ion-buttons>
-    <ion-title>Actualiza al Usuario</ion-title>
+    <ion-title>{{ 'update-user' | translate }}</ion-title>
     <ion-buttons slot="end">
-      <ion-button  color="success" (click)="confirm()" [strong]="true">Confirmar</ion-button>
+      <ion-button  color="success" (click)="confirm()" [strong]="true">{{ 'confirm' | translate  }}</ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
@@ -13,13 +13,13 @@
   <ion-item>
     <form [formGroup]="updateUserForm">
       <ion-item>
-        <ion-input label="name" labelPlacement="floating" formControlName="name"></ion-input>
+        <ion-input label="{{ 'name' | translate }}" labelPlacement="floating" formControlName="name"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-input label="Apellidos" labelPlacement="floating" formControlName="surname"></ion-input>
+        <ion-input label="{{ 'surname' | translate }}" labelPlacement="floating" formControlName="surname"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-input label="Correo electrónico" labelPlacement="floating" type="email" formControlName="email"></ion-input>
+        <ion-input label="{{ 'email' | translate }}" labelPlacement="floating" type="email" formControlName="email"></ion-input>
       </ion-item>
     </form>
   </ion-item>

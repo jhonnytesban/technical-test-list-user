@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastController } from '@ionic/angular';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -12,7 +13,7 @@ export class LogInComponent  implements OnInit {
 
   loginForm!: FormGroup;
 
-  constructor(private _authService: AuthService, private router: Router) { }
+  constructor(private _authService: AuthService, private router: Router, private toastController: ToastController) { }
 
   ngOnInit(): void {
     this.loginForm = new FormGroup({
@@ -30,12 +31,23 @@ export class LogInComponent  implements OnInit {
       .subscribe({
         next: (res) => {
           localStorage.setItem('token', JSON.stringify(res));
-          this.router.navigate(['/users'])
+          this.router.navigate(['/users']);
         },
-        error: (error) => {
-          console.log('ERROR', error)
+        error: () => {
+          this.loginForm.reset();
+          this.presentToast('top');
         }
       })
+  }
+
+  async presentToast(position: 'top' | 'middle' | 'bottom') {
+    const toast = await this.toastController.create({
+      message: 'El email o contraseña es incorrecta',
+      duration: 1500,
+      position: position,
+    });
+
+    await toast.present();
   }
 
 }

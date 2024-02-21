@@ -1,0 +1,18 @@
+{
+  "log-in": "Iniciar Sesión",
+  "log-out": "Cerrar Sesión",
+  "register": "Regístrate",
+  "registration": "Registro",
+  "create-account": "Crear cuenta",
+
+  "name": "Nombre",
+  "surname": "Apellidos",
+  "email": "Correo Electrónico",
+  "password": "Contraseña",
+
+  "update-user": "Actualizar Usuario",
+  "list-user": "Lista de usuarios",
+
+  "confirm": "Confirmar",
+  "cancel": "Cancelar"
+}

@@ -12,6 +12,18 @@ export class UsersService {
 
   constructor(private http: HttpClient) { }
 
+  getUserMe(): Observable<User> {
+    const { accessToken } = JSON.parse(localStorage.getItem('token')!)
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + accessToken
+      }),
+    };
+    
+    return this.http.get<User>(`${this.url}/me`, httpOptions);
+  }
+
   getAllUsers(): Observable<UserList> {
     const { accessToken } = JSON.parse(localStorage.getItem('token')!)
     const httpOptions = {
@@ -32,6 +44,17 @@ export class UsersService {
       }),
     }
     return this.http.get(`${this.url}/${id}`, httpOptions);
+  }
+
+  createUser(userData: User) {
+    const { accessToken } = JSON.parse(localStorage.getItem('token')!)
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + accessToken
+      }),
+    }
+    return this.http.post(this.url, userData);
   }
 
   updateUser(id: string, userData: User) {

@@ -32,8 +32,7 @@ export class UserListComponent  implements OnInit {
 
     const { data, role } = await modal.onWillDismiss();
 
-    console.log('modal-close', data, role)
-    if (role === 'confirm') {
+    if (role === 'confirm' && data) {
       this._usersService.updateUser(id, data)
         .subscribe({
           next: () => {
