@@ -9,13 +9,13 @@ const routes: Routes = [
     loadChildren: () => import('./auth/auth-routing.module').then( m => m.UserRoutingModule)
   },
   {
-    path: 'user-list',
+    path: 'users',
     // canActivate: [loginGuard],
     loadChildren: () => import('./user/user.module').then( m => m.UserPageModule)
   },
   {
     path: '**',
-    redirectTo: 'user-list'
+    redirectTo: 'users'
   }
 ];
 
