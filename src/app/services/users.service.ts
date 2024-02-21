@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import {  UserList } from '../interfaces/user.interface';
+import {  User, UserList } from '../interfaces/user.interface';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -21,6 +21,28 @@ export class UsersService {
       }),
     }
     return this.http.get<UserList>(this.url, httpOptions)
+  }
+
+  getUserById(id: string) {
+    const { accessToken } = JSON.parse(localStorage.getItem('token')!)
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + accessToken
+      }),
+    }
+    return this.http.get(`${this.url}/${id}`, httpOptions);
+  }
+
+  updateUser(id: string, userData: User) {
+    const { accessToken } = JSON.parse(localStorage.getItem('token')!)
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + accessToken
+      })
+    }
+    return this.http.put(`${this.url}/${id}`,userData, httpOptions)
   }
 
   deleteUser(id: string): Observable<void> {

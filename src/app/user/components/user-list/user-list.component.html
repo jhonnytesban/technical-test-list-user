@@ -2,11 +2,11 @@
   <ion-list *ngIf="!(isLoading | async)" class="custom-list">
     <ion-item lines="full" *ngFor="let item of userList | async">
       <ion-label>{{ item.name }}</ion-label>
-      <ion-button>
-        <ion-icon slot="icon-only" name="star"></ion-icon>
+      <ion-button (click)="openModal(item.id)">
+        <ion-icon slot="icon-only" name="create-outline"></ion-icon>
       </ion-button>
       <ion-button color="danger" (click)="deleteUser(item.id)">
-        <ion-icon name="trash-outline"></ion-icon>
+        <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
       </ion-button>
     </ion-item>
   </ion-list>
