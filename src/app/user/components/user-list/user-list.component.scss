@@ -1,5 +1,19 @@
 :host {
-  .container-page {
-    margin-top: 60px;
+  .custom-list {
+    margin: 1rem 2rem;
+
+    ion-item {
+      margin: 1rem 0;
+    }
   }
+
+  ion-spinner {
+    width: 20%;
+    height: 20%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -100%);
+  }
+
 }
