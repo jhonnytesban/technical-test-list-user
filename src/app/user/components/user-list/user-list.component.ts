@@ -37,9 +37,6 @@ export class UserListComponent  implements OnInit {
         .subscribe({
           next: () => {
             this.loadUser();
-          },
-          error: (error) => {
-            console.log('ERROR', error);
           }
         })
     }

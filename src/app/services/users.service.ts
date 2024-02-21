@@ -35,7 +35,7 @@ export class UsersService {
     return this.http.get<UserList>(this.url, httpOptions)
   }
 
-  getUserById(id: string) {
+  getUserById(id: string): Observable<User> {
     const { accessToken } = JSON.parse(localStorage.getItem('token')!)
     const httpOptions = {
       headers: new HttpHeaders({
@@ -43,21 +43,10 @@ export class UsersService {
         'Authorization': 'Bearer ' + accessToken
       }),
     }
-    return this.http.get(`${this.url}/${id}`, httpOptions);
+    return this.http.get<User>(`${this.url}/${id}`, httpOptions);
   }
 
-  createUser(userData: User) {
-    const { accessToken } = JSON.parse(localStorage.getItem('token')!)
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + accessToken
-      }),
-    }
-    return this.http.post(this.url, userData);
-  }
-
-  updateUser(id: string, userData: User) {
+  updateUser(id: string, userData: User): Observable<void> {
     const { accessToken } = JSON.parse(localStorage.getItem('token')!)
     const httpOptions = {
       headers: new HttpHeaders({
@@ -65,7 +54,7 @@ export class UsersService {
         'Authorization': 'Bearer ' + accessToken
       })
     }
-    return this.http.put(`${this.url}/${id}`,userData, httpOptions)
+    return this.http.put<void>(`${this.url}/${id}`,userData, httpOptions)
   }
 
   deleteUser(id: string): Observable<void> {
