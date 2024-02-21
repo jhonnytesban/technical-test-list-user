@@ -1,13 +1,15 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AuthTokens, User } from '../interfaces/user.interface';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   private url = 'http://51.38.51.187:5050/api/v1/auth/';
+
+  public showRegisterToast = new BehaviorSubject(false);
 
   constructor(private http: HttpClient) { }
 

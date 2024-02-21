@@ -1,8 +1,11 @@
 {
   "log-in": "Log In",
+  "log-in-error": "Incorrect email or password",
   "log-out": "Log Out",
   "register": "Register",
   "registration": "Registration",
+  "register-info": "User created, Log in",
+  "register-error": "That email already exists",
   "create-account": "Create Account",
 
   "name": "Name",

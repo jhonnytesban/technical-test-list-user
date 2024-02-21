@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
+import { TranslateService } from '@ngx-translate/core';
+import { finalize, take } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -13,13 +15,28 @@ export class LogInComponent  implements OnInit {
 
   loginForm!: FormGroup;
 
-  constructor(private _authService: AuthService, private router: Router, private toastController: ToastController) { }
+  constructor(
+    private _authService: AuthService,
+    private router: Router,
+    private toastController: ToastController,
+    private translate: TranslateService
+  ) { }
 
   ngOnInit(): void {
     this.loginForm = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [Validators.required, Validators.minLength(6)]),
     });
+
+    this._authService.showRegisterToast
+      .pipe(
+        finalize(() => this._authService.showRegisterToast.next(false))
+      )
+      .subscribe((show) => {
+        if (show) {
+          this.presentToast('top', 'register-info');
+        }
+      })
   }
 
   login(): void {
@@ -35,14 +52,14 @@ export class LogInComponent  implements OnInit {
         },
         error: () => {
           this.loginForm.reset();
-          this.presentToast('top');
+          this.presentToast('top', 'log-in-error');
         }
       })
   }
 
-  async presentToast(position: 'top' | 'middle' | 'bottom') {
+  async presentToast(position: 'top' | 'middle' | 'bottom', messageInfo: string) {
     const toast = await this.toastController.create({
-      message: 'El email o contraseña es incorrecta',
+      message: this.translate.instant(messageInfo),
       duration: 1500,
       position: position,
     });

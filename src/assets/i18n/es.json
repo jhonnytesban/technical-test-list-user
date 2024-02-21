@@ -1,8 +1,11 @@
 {
   "log-in": "Iniciar Sesión",
+  "log-in-error": "El email o contraseña es incorrecto",
   "log-out": "Cerrar Sesión",
   "register": "Regístrate",
   "registration": "Registro",
+  "register-info": "Usuario creado, Inicia sesión",
+  "register-error": "Ese email ya existe",
   "create-account": "Crear cuenta",
 
   "name": "Nombre",
