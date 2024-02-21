@@ -9,6 +9,7 @@ import { IonicModule } from '@ionic/angular';
 import { UserPageComponent } from './pages/user-page.component';
 import { AppRoutingModule } from '../app-routing.module';
 import { UserRoutingModule } from './user-routing.module';
+import { UserListComponent } from './components/user-list/user-list.component';
 
 @NgModule({
   imports: [
@@ -17,6 +18,6 @@ import { UserRoutingModule } from './user-routing.module';
     IonicModule,
     UserRoutingModule
   ],
-  declarations: [UserPageComponent]
+  declarations: [UserPageComponent, UserListComponent]
 })
 export class UserPageModule {}

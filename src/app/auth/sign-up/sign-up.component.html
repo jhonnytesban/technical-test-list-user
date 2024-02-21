@@ -1,3 +1,28 @@
-<p>
-  sign-up works!
-</p>
+<ion-content>
+  <ion-header>
+    <ion-toolbar>
+      <ion-title class="ion-text-center">Registro</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-card class="ion-padding custom-card">
+    <ion-card-content>
+      <form [formGroup]="registerForm">
+        <ion-item>
+          <ion-input label="Nombre" labelPlacement="floating" formControlName="name"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input label="Apellidos" labelPlacement="floating" formControlName="surName"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input label="Correo electrónico" labelPlacement="floating" type="email" formControlName="email"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input label="Contraseña" labelPlacement="floating" type="password" formControlName="password"></ion-input>
+        </ion-item>
+        <ion-button expand="block" [disabled]="registerForm.invalid" (click)="register()">Crear cuenta</ion-button>
+        <ion-button fill="clear" expand="block" [routerLink]="['/auth/login']">Iniciar Sesión</ion-button>
+      </form>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

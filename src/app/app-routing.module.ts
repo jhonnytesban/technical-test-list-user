@@ -10,7 +10,7 @@ const routes: Routes = [
   },
   {
     path: 'user-list',
-    canActivate: [loginGuard],
+    // canActivate: [loginGuard],
     loadChildren: () => import('./user/user.module').then( m => m.UserPageModule)
   },
   {

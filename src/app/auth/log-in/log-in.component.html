@@ -1,11 +1,11 @@
 <ion-content>
   <ion-header>
     <ion-toolbar>
-      <ion-title>Iniciar sesión</ion-title>
+      <ion-title class="ion-text-center">Iniciar sesión</ion-title>
     </ion-toolbar>
   </ion-header>
   
-  <ion-card>
+  <ion-card class="ion-padding custom-card">
     <ion-card-content>
       <form [formGroup]="loginForm">
         <ion-item>
@@ -15,14 +15,8 @@
           <ion-input label="Contraseña" labelPlacement="floating" type="password" formControlName="password"></ion-input>
         </ion-item>
         <ion-button expand="block" [disabled]="loginForm.invalid" (click)="login()">Iniciar sesión</ion-button>
+        <ion-button fill="clear" expand="block" [routerLink]="['/auth/register']">Registrarse</ion-button>
       </form>
     </ion-card-content>
   </ion-card>
-  
-  <ion-footer>
-    <ion-toolbar>
-      <ion-button href="#">¿Olvidaste tu contraseña?</ion-button>
-      <ion-button href="#">Registrarse</ion-button>
-    </ion-toolbar>
-  </ion-footer>
 </ion-content>
