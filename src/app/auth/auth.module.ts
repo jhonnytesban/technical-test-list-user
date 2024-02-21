@@ -6,6 +6,7 @@ import { IonicModule } from '@ionic/angular';
 import { UserRoutingModule } from '../user/user-routing.module';
 import { LogInComponent } from './log-in/log-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
+import { HttpClientModule } from '@angular/common/http';
 
 // import { FolderPageRoutingModule } from './folder-routing.module'
 
@@ -16,7 +17,8 @@ import { SignUpComponent } from './sign-up/sign-up.component';
     IonicModule,
     UserRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   declarations: [LogInComponent, SignUpComponent]
 })

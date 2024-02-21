@@ -5,12 +5,11 @@ import { loginGuard } from './guards/login.guard';
 const routes: Routes = [
   {
     path: 'auth',
-    canActivate: [loginGuard],
     loadChildren: () => import('./auth/auth-routing.module').then( m => m.UserRoutingModule)
   },
   {
     path: 'users',
-    // canActivate: [loginGuard],
+    canActivate: [loginGuard],
     loadChildren: () => import('./user/user.module').then( m => m.UserPageModule)
   },
   {

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-log-in',
@@ -10,7 +12,7 @@ export class LogInComponent  implements OnInit {
 
   loginForm!: FormGroup;
 
-  constructor() { }
+  constructor(private _authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
     this.loginForm = new FormGroup({
@@ -19,19 +21,21 @@ export class LogInComponent  implements OnInit {
     });
   }
 
-  login() {
+  login(): void {
     if (this.loginForm.invalid) {
       return;
     }
 
-    const { email, password } = this.loginForm.value;
-    // this.authService.login(email, password)
-    //   .subscribe((data) => {
-    //     // Redireccionar al usuario a la página principal
-    //     // o realizar otra acción según sea necesario
-    //   }, (error) => {
-    //     // Mostrar un mensaje de error al usuario
-    //   });
+    this._authService.login(this.loginForm.getRawValue())
+      .subscribe({
+        next: (res) => {
+          localStorage.setItem('token', JSON.stringify(res));
+          this.router.navigate(['/users'])
+        },
+        error: (error) => {
+          console.log('ERROR', error)
+        }
+      })
   }
 
 }
